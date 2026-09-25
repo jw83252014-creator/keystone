@@ -8,3 +8,4 @@ REPORT.md
 .env
 __pycache__/
 *.log
+!tests/fixtures/*.csv

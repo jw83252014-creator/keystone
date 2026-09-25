@@ -4,6 +4,7 @@
 - Install the order tripwire (Phase 0.2): Claude Code's auto-mode check won't let terminal Claude write `.claude/settings.json` itself.
   Jeff creates it from HANDOFF-CLAUDE-CODE.md, with the hook command pointing at `tools/block_orders.py`.
 - Maker fee on KXBTC15M: still unconfirmed.
+- jevgate venue label: `--venue-threshold` defaults to $10, a round placeholder fixed before seeing any data. Confirm or set it before reading venue_disagreement scores.
 
 ## Log
 - 2026-09-24 · 1.1 · Logs found: the app writes `phone-audit.json` + `observations*.jsonl` to `/sdcard/Android/data/com.agentbridge.kalshihud/files/`. Pulled with adb.
@@ -22,3 +23,4 @@
 - 2026-09-25 · 0.2 · Jeff placed .claude/settings.json (allowlist + order tripwire hook). tools/block_orders.py blocks 'portfolio/orders' (exit 2) when run directly; the hook applies to Claude Code sessions whose project dir is this folder.
 - 2026-09-25 · 3.4 · Rules recorder started as user service keystone-paper-rules (paperlive.py --decider rules, agree 4, db paper-rules.db). Switch to Jev when OpenRouter has credits.
 - 2026-09-25 · 3.4 · Fix: a stray duplicate paperlive (PID 9641, from a detached start) ran alongside the service 11:28-11:48 EDT and caused sqlite locks. Stopped it; one writer since 11:48. Score the rules run from 11:48 EDT onward (exclude earlier rows).
+- 2026-09-25 · cloud task (TASK-jev-schema-v2) · Added jevgate.py (six-question skip-gate on FIRST calls, scoring, gate result), test_jevgate.py and a fabricated fixture in tests/fixtures/. Multi-question Jev adapter lives in jevgate.py; jevloop.py and paperlive.py unchanged. No Jev or network calls; fake answers only. `python3 -m pytest -q` passes, `python3 jevgate.py score --fake` runs. Real run is terminal Claude's: week 1 to tune, count the gate settings tried.
