@@ -2,6 +2,8 @@
   "permissions": {
     "allow": ["Bash(adb devices)", "Bash(adb pull:*)", "Bash(python3 jevloop.py:*)",
               "Bash(python3 tapemath.py:*)", "Bash(python3 paperlive.py:*)",
+              "Bash(python3 -m pytest -q)", "Bash(python3 jevgate.py score --fake)",
+              "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)",
               "Bash(git add:*)", "Bash(git commit:*)",
               "Edit(./STATUS.md)", "Edit(./PLAN.md)"],
     "deny":  ["Read(./.env)", "Bash(rm -rf:*)"]
