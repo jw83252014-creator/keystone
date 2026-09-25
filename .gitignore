@@ -1,0 +1,8 @@
+*.csv
+*.jsonl
+*.db
+*.db-wal
+*.db-shm
+wl.txt
+REPORT.md
+.env

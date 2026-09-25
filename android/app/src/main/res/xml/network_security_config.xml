@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cleartext is allowed ONLY for the ThinkPad HUD over Tailscale. Everything
+     else (Kalshi, Coinbase) stays HTTPS-only. -->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="false"/>
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="false">100.119.33.21</domain>
+    <domain includeSubdomains="false">127.0.0.1</domain>
+  </domain-config>
+</network-security-config>

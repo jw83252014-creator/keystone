@@ -1,0 +1,4 @@
+build/
+*.p12
+*.jks
+local.properties

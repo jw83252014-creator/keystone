@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiger panel — KXBTC15M</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --housing:#1C242E; --face:#253040; --face-hi:#2C3A4C;
+  --etch:#3D4C5E; --legend:#93A6B8; --readout:#EAF0F6;
+  --implied:#E8A33D; --realized:#46C8BE; --halt:#D2604F; --ok:#5FBF7F;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:28px 16px; background:var(--housing);
+  color:var(--readout); font-family:'IBM Plex Sans Condensed',system-ui,sans-serif;
+  display:flex; justify-content:center;
+}
+.panel{width:100%; max-width:660px; background:var(--face);
+  border:1px solid var(--etch); border-radius:3px; overflow:hidden}
+
+/* header */
+.hdr{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  padding:14px 20px; border-bottom:1px solid var(--etch); background:var(--face-hi)}
+.mark{font-family:'Archivo',sans-serif; font-weight:800; font-size:15px;
+  letter-spacing:.16em; text-transform:uppercase}
+.ticker{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--legend)}
+.clock{margin-left:auto; font-family:'IBM Plex Mono',monospace;
+  font-size:19px; font-weight:600; font-variant-numeric:tabular-nums}
+
+/* price strip */
+.strip{display:flex; flex-wrap:wrap; gap:26px; padding:16px 20px;
+  border-bottom:1px solid var(--etch)}
+.cell{display:flex; flex-direction:column; gap:3px}
+.lbl{font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--legend)}
+.val{font-family:'IBM Plex Mono',monospace; font-size:17px; font-variant-numeric:tabular-nums}
+.val.up{color:var(--ok)}
+
+/* hero: the scale */
+.hero{padding:24px 20px 20px}
+.hero h2{margin:0 0 22px; font-family:'Archivo',sans-serif; font-weight:700;
+  font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--legend)}
+.scale{position:relative; height:96px; margin:0 6px}
+.axis{position:absolute; left:0; right:0; top:52px; height:1px; background:var(--etch)}
+.tick{position:absolute; top:52px; width:1px; height:7px; background:var(--etch)}
+.tick span{position:absolute; top:11px; left:50%; transform:translateX(-50%);
+  font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--legend)}
+.gap{position:absolute; top:46px; height:13px; background:var(--halt); opacity:.22}
+.pin{position:absolute; top:0; width:2px; height:52px}
+.pin b{position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+  width:11px; height:11px; border-radius:50%}
+.pin i{position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
+  font-style:normal; font-family:'IBM Plex Mono',monospace; font-size:18px;
+  font-weight:600; white-space:nowrap; font-variant-numeric:tabular-nums}
+.pin em{position:absolute; bottom:38px; left:50%; transform:translateX(-50%);
+  font-style:normal; font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
+  white-space:nowrap}
+.pin.i{background:var(--implied)} .pin.i b{background:var(--implied)}
+.pin.i i,.pin.i em{color:var(--implied)}
+.pin.r{background:var(--realized)} .pin.r b{background:var(--realized)}
+.pin.r i,.pin.r em{color:var(--realized)}
+.reading{margin:20px 6px 0; font-size:13.5px; line-height:1.5; color:var(--readout)}
+.reading b{color:var(--implied)} .reading u{text-decoration:none; color:var(--realized)}
+
+/* verdict */
+.foot{border-top:1px solid var(--etch)}
+.nums{display:flex; flex-wrap:wrap; gap:26px; padding:15px 20px}
+.verdict{display:flex; align-items:center; gap:11px; padding:13px 20px;
+  border-top:1px solid var(--etch); background:rgba(210,96,79,.11)}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--halt); flex:none}
+.verdict p{margin:0; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--halt)}
+.note{padding:12px 20px; border-top:1px solid var(--etch);
+  font-size:11.5px; color:var(--legend); line-height:1.5}
+@media (max-width:520px){
+  .strip,.nums{gap:18px}
+  .pin i{font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="panel">
+
+  <div class="hdr">
+    <span class="mark">Tiger</span>
+    <span class="ticker">KXBTC15M · 26aug171115</span>
+    <span class="clock">08:12</span>
+  </div>
+
+  <div class="strip">
+    <div class="cell"><span class="lbl">Index</span><span class="val">63,903.56</span></div>
+    <div class="cell"><span class="lbl">Target</span><span class="val">63,810.87</span></div>
+    <div class="cell"><span class="lbl">Distance</span><span class="val up">+92.69</span></div>
+    <div class="cell"><span class="lbl">Book</span><span class="val">88 / 13</span></div>
+  </div>
+
+  <div class="hero">
+    <h2>Volatility disagreement</h2>
+
+    <div class="scale">
+      <div class="axis"></div>
+
+      <div class="tick" style="left:0%"><span>20%</span></div>
+      <div class="tick" style="left:20%"><span>30%</span></div>
+      <div class="tick" style="left:40%"><span>40%</span></div>
+      <div class="tick" style="left:60%"><span>50%</span></div>
+      <div class="tick" style="left:80%"><span>60%</span></div>
+      <div class="tick" style="left:100%"><span>70%</span></div>
+
+      <!-- gap between implied 32.6% and realized 52% -->
+      <div class="gap" style="left:25.2%; width:38.8%"></div>
+
+      <div class="pin i" style="left:25.2%">
+        <em>Market assumes</em><i>32.6%</i><b></b>
+      </div>
+      <div class="pin r" style="left:64%">
+        <em>Actually realized</em><i>52%</i><b></b>
+      </div>
+    </div>
+
+    <p class="reading">
+      The book at 88¢ is priced as if Bitcoin were moving at <b>32.6%</b> annualized.
+      The last hour <u>actually moved at 52%</u>. The market is assuming a calmer
+      tape than the one in front of it — so 88¢ is expensive, not cheap.
+    </p>
+  </div>
+
+  <div class="foot">
+    <div class="nums">
+      <div class="cell"><span class="lbl">Ask</span><span class="val">88.0¢</span></div>
+      <div class="cell"><span class="lbl">+ fee</span><span class="val">89.0¢</span></div>
+      <div class="cell"><span class="lbl">Fair @ 52%</span><span class="val">76.9%</span></div>
+      <div class="cell"><span class="lbl">Net edge</span><span class="val" style="color:var(--halt)">−12.1</span></div>
+    </div>
+    <div class="verdict">
+      <span class="dot"></span>
+      <p>NO_TRADE on Up — but Down at 13¢ is the side this implies</p>
+    </div>
+    <p class="note">
+      Realized vol is a placeholder until the recorder is running. Everything
+      above moves with it — that is the point of showing it rather than hiding
+      it inside a probability.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
