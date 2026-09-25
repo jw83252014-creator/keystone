@@ -21,3 +21,4 @@
 - 2026-09-25 · 3.4 · paperlive.py + tools/block_orders.py added (reviewed: read-only Kalshi/Coinbase GETs, paper fills only). Not started: needs OpenRouter credits, and Jeff to place .claude/settings.json.
 - 2026-09-25 · 0.2 · Jeff placed .claude/settings.json (allowlist + order tripwire hook). tools/block_orders.py blocks 'portfolio/orders' (exit 2) when run directly; the hook applies to Claude Code sessions whose project dir is this folder.
 - 2026-09-25 · 3.4 · Rules recorder started as user service keystone-paper-rules (paperlive.py --decider rules, agree 4, db paper-rules.db). Switch to Jev when OpenRouter has credits.
+- 2026-09-25 · 3.4 · Fix: a stray duplicate paperlive (PID 9641, from a detached start) ran alongside the service 11:28-11:48 EDT and caused sqlite locks. Stopped it; one writer since 11:48. Score the rules run from 11:48 EDT onward (exclude earlier rows).
