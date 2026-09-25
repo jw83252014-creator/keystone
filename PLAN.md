@@ -29,6 +29,7 @@ Tick a box only when its "done when" is true. One step at a time. Log every step
 - [x] 3.1 Wire `call_jev()` in `jevloop.py`. Pin `jev-1.13.0`. Key in an environment variable.
 - [x] 3.2 Week 1 only: `--decider jev --cache jev.jsonl`, then sweep `--agree` (matched to one minute of time), `--min-conf`, `--target-cents`, `--stop-cents`. Count every setting tried.
 - [ ] 3.3 Freeze one setting. Run it once on week 2. Done when: `REPORT.md` shows week 1, week 2 and the settings count, all versus the random null after fees.
+- [ ] 3.4 Live paper trading, frozen setting (agree 4, conf 0.6, hold). Done when: 3 full days logged.
 
 ## Phase 4 — Jev as the token-saving front door (KS, TC)
 

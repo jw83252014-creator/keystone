@@ -17,3 +17,5 @@
 - 2026-09-24 · 3.2 · Week-1 sweep done: agree {1,4,12} × min_conf {0.5,0.6,0.7} × exits {hold, ±10c} = 18 settings.
 - 2026-09-24 · 3.3 · Frozen before week 2: agree=4, min_conf=0.6, hold. The week-2 cache is partly filled (rate-limited at 16 threads); resume at 6 threads.
 - 2026-09-25 · 0.1 · `.gitignore` in place. 0.3 · No Kalshi trading key on this machine: the only secret is OPENROUTER_API_KEY in ~/.config/kalshi-hud/secrets.env, and ~/.local/share/kalshi-hud-signing/development.p12 is the APK signing key.
+- 2026-09-25 · 3.3 · Week-2 cache fill stopped: OpenRouter returned 402 "Insufficient credits" (account balance, not the key's $250 cap). About 12.9k of 28.2k week-2 answers cached. Week-2 run waits on a top-up.
+- 2026-09-25 · 3.4 · paperlive.py + tools/block_orders.py added (reviewed: read-only Kalshi/Coinbase GETs, paper fills only). Not started: needs OpenRouter credits, and Jeff to place .claude/settings.json.
