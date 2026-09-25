@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": ["Bash(adb devices)", "Bash(adb pull:*)", "Bash(python3 jevloop.py:*)",
+              "Bash(python3 tapemath.py:*)", "Bash(python3 paperlive.py:*)",
+              "Bash(git add:*)", "Bash(git commit:*)",
+              "Edit(./STATUS.md)", "Edit(./PLAN.md)"],
+    "deny":  ["Read(./.env)", "Bash(rm -rf:*)"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {"matcher": "Bash",
+       "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR\"/tools/block_orders.py"}]}
+    ]
+  }
+}

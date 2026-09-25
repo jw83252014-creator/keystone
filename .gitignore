@@ -6,3 +6,5 @@
 wl.txt
 REPORT.md
 .env
+__pycache__/
+*.log
