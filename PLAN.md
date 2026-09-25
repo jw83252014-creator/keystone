@@ -7,7 +7,7 @@ Tick a box only when its "done when" is true. One step at a time. Log every step
 ## Phase 0 — Channel and safety (TC)
 
 - [x] 0.1 Repo holds code and plans only. Done when: `.gitignore` excludes `*.csv`, `*.jsonl`, `*.db`, `wl.txt`, `REPORT.md`, `.env`.
-- [ ] 0.2 Install `.claude/settings.json` and the order tripwire from the handoff. Done when: a Bash command containing `portfolio/orders` is blocked.
+- [x] 0.2 Install `.claude/settings.json` and the order tripwire from the handoff. Done when: a Bash command containing `portfolio/orders` is blocked.
 - [x] 0.3 Confirm no Kalshi trading key exists on this machine. Done when: logged in `STATUS.md`.
 
 ## Phase 1 — Export the app's two weeks (TC, J)

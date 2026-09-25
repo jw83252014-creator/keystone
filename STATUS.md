@@ -19,3 +19,4 @@
 - 2026-09-25 · 0.1 · `.gitignore` in place. 0.3 · No Kalshi trading key on this machine: the only secret is OPENROUTER_API_KEY in ~/.config/kalshi-hud/secrets.env, and ~/.local/share/kalshi-hud-signing/development.p12 is the APK signing key.
 - 2026-09-25 · 3.3 · Week-2 cache fill stopped: OpenRouter returned 402 "Insufficient credits" (account balance, not the key's $250 cap). About 12.9k of 28.2k week-2 answers cached. Week-2 run waits on a top-up.
 - 2026-09-25 · 3.4 · paperlive.py + tools/block_orders.py added (reviewed: read-only Kalshi/Coinbase GETs, paper fills only). Not started: needs OpenRouter credits, and Jeff to place .claude/settings.json.
+- 2026-09-25 · 0.2 · Jeff placed .claude/settings.json (allowlist + order tripwire hook). tools/block_orders.py blocks 'portfolio/orders' (exit 2) when run directly; the hook applies to Claude Code sessions whose project dir is this folder.
